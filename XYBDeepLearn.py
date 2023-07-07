@@ -37,6 +37,7 @@ class XYBDeepLearn:
         return device_id
 
 
+
 class XYBLayer:
     w = tr.tensor([0], dtype=float, device=device_id)
     b = tr.tensor([0], dtype=float, device=device_id)
@@ -51,12 +52,6 @@ class XYBLayer:
         self.b.requires_grad = True
 
     def forward(self, x: tr.Tensor):
-        '''
-        if self.a is not None:
-            if random.random() < 0.1:
-                print('forget')
-                return self.a
-        '''
         z = tr.matmul(self.w, x) + self.b
 
         if self.active_type == 'sigmoid':
